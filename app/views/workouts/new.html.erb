@@ -1,0 +1,22 @@
+<%= form_for @workout do |f| %>
+    <%= f.label 'Workout name:' %> <br>
+    <%= f.text_field :name %> <br> <br>
+    <%= f.label 'Select from existing exercises' %> <br>
+    <%= f.collection_select :exercise_id, Exercise.all, :id, :name, include_blank: true %> <br>
+    <%= f.label 'Add some exercises' %>
+
+ <%= f.fields_for :exercise, @workout.build_exercise do |exf| %>
+    <%= exf.label 'Exercise name:' %> <br>
+    <%= exf.text_field :name %> <br>
+    <%= exf.label 'Sets:' %> <br>
+    <%= exf.number_field :sets %> <br>
+    <%= exf.label 'Reps:' %> <br>
+    <%= exf.number_field :reps %> <br>
+    <%= exf.label 'Weight in lbs:' %> <br>
+    <%= exf.number_field :weight %> <br>
+    <%= exf.label 'Notes:' %> <br>
+    <%= exf.text_area :notes %> <br>
+<% end %> <br/>
+
+    <%= f.submit 'Submit' %>
+<% end %>
