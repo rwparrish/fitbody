@@ -10,6 +10,12 @@ class ExercisesController < ApplicationController
         @workout = @exercise.workout 
     end
 
+    def destroy
+        @workout = @exercise.workout
+        @exrcise.delete
+        redirect_to workout_path(@workout)
+    end
+
     private
 
     def find_exercise

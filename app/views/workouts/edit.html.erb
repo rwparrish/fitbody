@@ -5,36 +5,10 @@
     <%= f.text_field :name %> <br> <br>
     <%= f.label 'Workout length in minutes:' %> <br>
     <%= f.text_field :length %> <br>
-    <%= f.label 'Add existing exercises to your workout:' %> <br>
-    <%= f.collection_select :exercise_ids, Exercise.all, :id, :name, include_blank: true %> <br>
-    
-    <h3> Edit your own exercises for this workout: </h3>   
-
- <%= f.fields_for :exercises, @workout.exercises.build do |exf| %>
-    <%= exf.label 'Exercise name:' %> <br>
-    <%= exf.text_field :name %> <br>
-    <%= exf.label 'Sets:' %> <br>
-    <%= exf.number_field :sets %> <br>
-    <%= exf.label 'Reps:' %> <br>
-    <%= exf.number_field :reps %> <br>
-    <%= exf.label 'Weight in lbs:' %> <br>
-    <%= exf.number_field :weight %> <br>
-    <%= exf.label 'Notes:' %> <br>
-    <%= exf.text_area :notes %> <br>
-    <%= exf.hidden_field :user_id, value: current_user.id %>
-
-    <%= exf.label 'Exercise name:' %> <br>
-    <%= exf.text_field :name %> <br>
-    <%= exf.label 'Sets:' %> <br>
-    <%= exf.number_field :sets %> <br>
-    <%= exf.label 'Reps:' %> <br>
-    <%= exf.number_field :reps %> <br>
-    <%= exf.label 'Weight in lbs:' %> <br>
-    <%= exf.number_field :weight %> <br>
-    <%= exf.label 'Notes:' %> <br>
-    <%= exf.text_area :notes %> <br>
-    <%= exf.hidden_field :user_id, value: current_user.id %>
-<% end %> <br/>
-
     <%= f.submit 'Submit' %>
+<% end %>
+
+Click on an exercise to delete it from this workout. <br>
+<% @workout.exercises.each do |e| %>
+<%= link_to e.name, exercises_path(e), method: 'delete' %>
 <% end %>
