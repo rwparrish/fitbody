@@ -10,5 +10,5 @@
 
 Click on an exercise to delete it from this workout. <br>
 <% @workout.exercises.each do |e| %>
-<%= link_to e.name, exercises_path(e), method: 'delete' %>
+<%= link_to e.name, "/exercises/#{e.id}", method: 'delete' %>
 <% end %>

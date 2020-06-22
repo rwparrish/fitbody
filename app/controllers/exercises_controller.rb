@@ -12,7 +12,7 @@ class ExercisesController < ApplicationController
 
     def destroy
         @workout = @exercise.workout
-        @exrcise.delete
+        @exercise.delete
         redirect_to workout_path(@workout)
     end
 

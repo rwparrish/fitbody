@@ -1,6 +1,6 @@
 <h3><%= @workout.name %></h3>
 <% @workout.exercises.each do |e| %>
-    <%= link_to e.name, exercise_path(e) %> <br>
+    <%= link_to e.name, workout_exercise_path(@workout, e) %> <br>
 <% end %>
 
 <%= link_to 'Edit this workout', edit_workout_path(@workout) %> <br>

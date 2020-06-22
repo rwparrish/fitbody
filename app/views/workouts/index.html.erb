@@ -1,6 +1,6 @@
 <h3>Your Workouts:</h3> 
 
-    <% @workouts.each do |w| %>
+    <% @workouts.uniq.each do |w| %>
         <%= link_to w.name, workout_path(w) %> <br>
     <% end %>
 
