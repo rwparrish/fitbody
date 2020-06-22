@@ -1,7 +1,8 @@
-I am in the @user.workouts index
+<h3>Your Workouts:</h3> 
 
-<% @workouts.each do |w| %>
-<%= link_to w.name, workout_path %>
-<% end %>
+    <% @workouts.each do |w| %>
+        <%= link_to w.name, workout_path(w) %> <br>
+    <% end %>
 
-<%= link_to 'Create Workout', new_workout_path %>
+<h4>Create Workout</h4>
+    <%= link_to 'Create Workout', new_workout_path %>

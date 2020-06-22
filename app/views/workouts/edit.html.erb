@@ -1,15 +1,14 @@
-<h2>Create your workout!</h2>
+<h2>Edit your workout!</h2>
 
-<%= form_for @workout do |f| %>
+<%= form_for(@workout) do |f| %>
     <%= f.label 'Workout name:' %> <br>
     <%= f.text_field :name %> <br> <br>
     <%= f.label 'Workout length in minutes:' %> <br>
     <%= f.text_field :length %> <br>
     <%= f.label 'Add existing exercises to your workout:' %> <br>
     <%= f.collection_select :exercise_ids, Exercise.all, :id, :name, include_blank: true %> <br>
-
     
-    <h3> Create your own exercises for this workout: </h3>   
+    <h3> Edit your own exercises for this workout: </h3>   
 
  <%= f.fields_for :exercises, @workout.exercises.build do |exf| %>
     <%= exf.label 'Exercise name:' %> <br>
