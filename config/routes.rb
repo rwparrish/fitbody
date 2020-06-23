@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   end
 
   resources :workouts, only: [:index, :new, :create, :show, :edit, :update] do
-    resources :exercises, only: [:new, :index, :show]
+    resources :exercises, only: [:new, :show]
   end
-  resources :exercises, only: [:index, :show, :edit, :update, :destroy]
+  resources :exercises, only: [:index, :new, :create, :show, :edit, :update]
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

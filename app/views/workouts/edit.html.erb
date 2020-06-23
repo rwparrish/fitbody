@@ -7,8 +7,3 @@
     <%= f.text_field :length %> <br>
     <%= f.submit 'Submit' %>
 <% end %>
-
-Click on an exercise to delete it from this workout. <br>
-<% @workout.exercises.each do |e| %>
-<%= link_to e.name, "/exercises/#{e.id}", method: 'delete' %>
-<% end %>
